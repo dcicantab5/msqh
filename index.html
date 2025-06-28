@@ -34,15 +34,16 @@
         
         .tab-button {
             flex: 1;
-            padding: 20px;
+            padding: 15px 10px;
             background: #34495e;
             color: white;
             border: none;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
             transition: all 0.3s ease;
             position: relative;
+            text-align: center;
         }
         
         .tab-button:hover {
@@ -61,6 +62,18 @@
         
         .tab-button.tab-13c.active {
             background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
+        
+        .tab-button.tab-08.active {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        }
+        
+        .tab-button.tab-23a.active {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        }
+        
+        .tab-button.tab-05.active {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
         }
         
         .tab-content {
@@ -87,6 +100,18 @@
         
         .header-13c {
             background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
+        
+        .header-08 {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        }
+        
+        .header-23a {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        }
+        
+        .header-05 {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
         }
         
         .header h1 {
@@ -130,7 +155,7 @@
             min-height: 600px;
         }
         
-        .content-13c {
+        .content-13c, .content-05 {
             display: block;
         }
         
@@ -151,6 +176,12 @@
             color: white;
             padding: 30px;
             text-align: center;
+        }
+        
+        .mixed-section {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 30px;
         }
         
         .section-title {
@@ -222,6 +253,18 @@
         
         .quick-tips-13c {
             background: #c0392b;
+        }
+        
+        .quick-tips-08 {
+            background: #27ae60;
+        }
+        
+        .quick-tips-23a {
+            background: #d68910;
+        }
+        
+        .quick-tips-05 {
+            background: #7d3c98;
         }
         
         .tips-grid {
@@ -326,8 +369,8 @@
             }
             
             .tab-button {
-                font-size: 14px;
-                padding: 15px;
+                font-size: 12px;
+                padding: 12px 8px;
             }
             
             .dialysis-grid {
@@ -338,7 +381,6 @@
 </head>
 <body>
     <div class="main-container">
-
         <!-- Tab Navigation -->
         <div class="tab-navigation">
             <button class="tab-button tab-9a active" onclick="showTab('tab-9a')">
@@ -349,13 +391,21 @@
                 🏥 Service Standard 13C<br>
                 <small>Chronic Dialysis Treatment</small>
             </button>
-            <button class="tab-button tab-8" onclick="showTab('tab-8')">
-                🚨 Service Standard 8<br>
+            <button class="tab-button tab-08" onclick="showTab('tab-08')">
+                🚨 Service Standard 08<br>
                 <small>Emergency Services</small>
+            </button>
+            <button class="tab-button tab-23a" onclick="showTab('tab-23a')">
+                ⚱️ Service Standard 23A<br>
+                <small>Mortuary Services</small>
+            </button>
+            <button class="tab-button tab-05" onclick="showTab('tab-05')">
+                🛡️ Service Standard 05<br>
+                <small>Infection Control</small>
             </button>
         </div>
 
-        <!-- Tab 9A Content -->
+        <!-- Tab 9A Content (Original) -->
         <div id="tab-9a" class="tab-content active">
             <div class="header header-9a">
                 <h1>MSQH Service Standard 9A</h1>
@@ -575,7 +625,7 @@
             </div>
         </div>
 
-        <!-- Tab 13C Content -->
+        <!-- Tab 13C Content (Original) -->
         <div id="tab-13c" class="tab-content">
             <div class="header header-13c">
                 <h1>MSQH Service Standard 13C</h1>
@@ -794,238 +844,6 @@
                         </div>
                     </div>
                 </div>
-
-                 <!-- Tab 8 Content -->
-        <div id="tab-8" class="tab-content">
-            <div class="header header-8">
-                <h1>MSQH Service Standard 8</h1>
-                <p>Emergency Services - Auditor Quick Reference Guide</p>
-            </div>
-            
-            <div class="stats-bar">
-                <div class="stat">
-                    <span class="stat-number">10</span>
-                    <span class="stat-label">CORE Standards</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">38</span>
-                    <span class="stat-label">Non-Core Standards</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">48</span>
-                    <span class="stat-label">Total Standards</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">5</span>
-                    <span class="stat-label">Main Topics</span>
-                </div>
-            </div>
-            
-            <div class="content">
-                <div class="core-section">
-                    <div class="section-title">🔴 CORE STANDARDS (MUST COMPLY)</div>
-                    
-                    <div class="priority-box">
-                        <div class="priority-title">
-                            <span class="priority-icon">🏢</span>
-                            TOPIC 8.1: Organisation & Management (2)
-                        </div>
-                        <div class="standard-item">
-                            <input type="checkbox" class="checkbox">
-                            <span class="standard-code">8.1.1.2</span>
-                            Organisation Chart Structure
-                        </div>
-                        <div class="standard-item">
-                            <input type="checkbox" class="checkbox">
-                            <span class="standard-code">8.1.2.1</span>
-                            Patient Transfer Arrangements
-                        </div>
-                    </div>
-                    
-                    <div class="priority-box">
-                        <div class="priority-title">
-                            <span class="priority-icon">👨‍⚕️</span>
-                            TOPIC 8.2: Human Resources (1)
-                        </div>
-                        <div class="standard-item">
-                            <input type="checkbox" class="checkbox">
-                            <span class="standard-code">8.2.1.1</span>
-                            Head of Emergency Services Qualifications
-                        </div>
-                    </div>
-                    
-                    <div class="priority-box">
-                        <div class="priority-title">
-                            <span class="priority-icon">📋</span>
-                            TOPIC 8.3: Policies & Procedures (3)
-                        </div>
-                        <div class="standard-item">
-                            <input type="checkbox" class="checkbox">
-                            <span class="standard-code">8.3.1.1</span>
-                            Triage System Implementation
-                        </div>
-                        <div class="standard-item">
-                            <input type="checkbox" class="checkbox">
-                            <span class="standard-code">8.3.2.1</span>
-                            Written Policies & Procedures
-                        </div>
-                        <div class="standard-item">
-                            <input type="checkbox" class="checkbox">
-                            <span class="standard-code">8.3.2.4</span>
-                            Evidence of Policy Compliance
-                        </div>
-                    </div>
-                    
-                    <div class="priority-box">
-                        <div class="priority-title">
-                            <span class="priority-icon">🏥</span>
-                            TOPIC 8.4: Facilities & Equipment (3)
-                        </div>
-                        <div class="standard-item">
-                            <input type="checkbox" class="checkbox">
-                            <span class="standard-code">8.4.1.4</span>
-                            Comprehensive Maintenance Programme
-                        </div>
-                        <div class="standard-item">
-                            <input type="checkbox" class="checkbox">
-                            <span class="standard-code">8.4.1.6</span>
-                            Minimum Equipment Requirements
-                        </div>
-                        <div class="standard-item">
-                            <input type="checkbox" class="checkbox">
-                            <span class="standard-code">8.4.1.7</span>
-                            Emergency Medications Standards
-                        </div>
-                    </div>
-                    
-                    <div class="priority-box">
-                        <div class="priority-title">
-                            <span class="priority-icon">📊</span>
-                            TOPIC 8.5: Safety & Performance (1)
-                        </div>
-                        <div class="standard-item">
-                            <input type="checkbox" class="checkbox">
-                            <span class="standard-code">8.5.1.4</span>
-                            Performance Indicators Tracking
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="noncore-section">
-                    <div class="section-title">🟡 NON-CORE STANDARDS</div>
-                    
-                    <div class="priority-box">
-                        <div class="priority-title">
-                            <span class="priority-icon">🏢</span>
-                            TOPIC 8.1: Organisation (10 standards)
-                        </div>
-                        <div style="font-size: 11px; opacity: 0.9;">
-                            Vision/Mission, Staff meetings, Management involvement, Budget planning, Statistics, Training oversight, Continuity arrangements, Disaster planning
-                        </div>
-                    </div>
-                    
-                    <div class="priority-box">
-                        <div class="priority-title">
-                            <span class="priority-icon">👨‍⚕️</span>
-                            TOPIC 8.2: Human Resources (8 standards)
-                        </div>
-                        <div style="font-size: 11px; opacity: 0.9;">
-                            Authority & responsibilities, Staffing levels, Job descriptions, Personnel records, Continuing education, Training needs, Orientation, Performance evaluation
-                        </div>
-                    </div>
-                    
-                    <div class="priority-box">
-                        <div class="priority-title">
-                            <span class="priority-icon">📋</span>
-                            TOPIC 8.3: Policies (11 standards)
-                        </div>
-                        <div style="font-size: 11px; opacity: 0.9;">
-                            Triage zoning, Infectious disease protocols, Policy development, Communication, Accessibility, Inter-agency relations, Patient identification, Documentation, Monitoring, Patient movement
-                        </div>
-                    </div>
-                    
-                    <div class="priority-box">
-                        <div class="priority-title">
-                            <span class="priority-icon">🏥</span>
-                            TOPIC 8.4: Facilities (4 standards)
-                        </div>
-                        <div style="font-size: 11px; opacity: 0.9;">
-                            Treatment zones, Adequate facilities, Equipment compliance, Staff training on specialized equipment
-                        </div>
-                    </div>
-                    
-                    <div class="priority-box">
-                        <div class="priority-title">
-                            <span class="priority-icon">📊</span>
-                            TOPIC 8.5: Safety & Performance (5 standards)
-                        </div>
-                        <div style="font-size: 11px; opacity: 0.9;">
-                            Planned activities, Assigned responsibilities, Incident reporting, Feedback systems, Documentation & confidentiality
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="quick-tips quick-tips-8">
-                    <h3 style="text-align: center; margin-bottom: 20px;">🎯 EMERGENCY SERVICES CRITICAL POINTS</h3>
-                    <div class="tips-grid">
-                        <div class="tip-card">
-                            <div class="tip-title">Head of Service Requirements</div>
-                            Emergency physician with NSR (Emergency Medicine) registration OR visiting specialist supervision. Valid APC required.
-                        </div>
-                        <div class="tip-card">
-                            <div class="tip-title">Mandatory Triage System</div>
-                            Performed by trained medical/paramedical staff. Malaysian Triage Category (MTC) with appropriate zoning and response times.
-                        </div>
-                        <div class="tip-card">
-                            <div class="tip-title">Essential Equipment</div>
-                            Airway management, oxygen delivery, ventilation support, defibrillator, vascular access, monitoring equipment, emergency medications.
-                        </div>
-                        <div class="tip-card">
-                            <div class="tip-title">Performance Indicators</div>
-                            Mandatory: Inappropriate triaging ≤0.5%. Optional: Waiting times by triage category, 24hr returns for similar complaints.
-                        </div>
-                        <div class="tip-card">
-                            <div class="tip-title">Patient Transfer Protocol</div>
-                            Documented communication, qualified escort staff, clinical details transfer, continuity of care throughout process.
-                        </div>
-                        <div class="tip-card">
-                            <div class="tip-title">24/7 Operations</div>
-                            Accessible emergency services, appropriate staffing levels, disaster preparedness, inter-agency coordination protocols.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="committee-map">
-                    <h3 style="text-align: center; margin-bottom: 15px;">⚠️ EMERGENCY SERVICES SUCCESS FACTORS</h3>
-                    <div class="committee-grid">
-                        <div class="committee-card">
-                            <div class="committee-lead">Leadership</div>
-                            Qualified emergency physician<br>Clear organisation structure
-                        </div>
-                        <div class="committee-card">
-                            <div class="committee-lead">Triage Excellence</div>
-                            Trained staff<br>Malaysian Triage Category compliance
-                        </div>
-                        <div class="committee-card">
-                            <div class="committee-lead">Equipment Ready</div>
-                            Resuscitation capabilities<br>Maintenance programmes
-                        </div>
-                        <div class="committee-card">
-                            <div class="committee-lead">Policy Compliance</div>
-                            Evidence-based procedures<br>Staff compliance verification
-                        </div>
-                        <div class="committee-card">
-                            <div class="committee-lead">Performance Monitoring</div>
-                            Quality indicators<br>Incident reporting systems
-                        </div>
-                        <div class="committee-card">
-                            <div class="committee-lead">Patient Safety</div>
-                            Transfer protocols<br>Continuity of care
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
                 
                 <div class="critical-points">
                     <h3 style="margin-bottom: 15px;">⚠️ CRITICAL SUCCESS FACTORS FOR DIALYSIS CENTERS</h3>
@@ -1053,6 +871,637 @@
                 </div>
             </div>
         </div>
+
+        <!-- Tab 08 Content (Emergency Services) -->
+        <div id="tab-08" class="tab-content">
+            <div class="header header-08">
+                <h1>MSQH Service Standard 08</h1>
+                <p>Emergency Services - Auditor Quick Reference Guide</p>
+            </div>
+            
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">CORE Standards</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">30</span>
+                    <span class="stat-label">Non-Core Standards</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">40</span>
+                    <span class="stat-label">Total Standards</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Main Topics</span>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="core-section">
+                    <div class="section-title">🔴 CORE STANDARDS (MUST COMPLY)</div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📋</span>
+                            TOPIC 8.1: Organisation & Management (2)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">8.1.1.2</span>
+                            Organisation Chart & Reporting Lines
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">8.1.2.1</span>
+                            Patient Transfer Arrangements
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">👥</span>
+                            TOPIC 8.2: Human Resources (1)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">8.2.1.1</span>
+                            Head of Emergency Services Qualifications
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📄</span>
+                            TOPIC 8.3: Policies & Procedures (3)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">8.3.1.1</span>
+                            Triage Procedures & Training
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">8.3.2.1</span>
+                            Written Policies & 3-Year Review
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">8.3.2.4</span>
+                            Evidence of Policy Compliance
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">🏥</span>
+                            TOPIC 8.4: Facilities & Equipment (3)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">8.4.1.4</span>
+                            Comprehensive Maintenance Programme
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">8.4.1.6</span>
+                            Minimum Equipment Requirements
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">8.4.1.7</span>
+                            Emergency Medications & Formulations
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📊</span>
+                            TOPIC 8.5: Safety & Performance (1)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">8.5.1.4</span>
+                            Performance Indicators Tracking
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="noncore-section">
+                    <div class="section-title">🟡 NON-CORE STANDARDS</div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📋</span>
+                            TOPIC 8.1: Organisation (6 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Vision/Mission, Staff meetings, Management involvement, Budget planning, Staff assignment, Statistics, Training agreements
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">👥</span>
+                            TOPIC 8.2: Human Resources (8 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Authority responsibilities, Staffing adequacy, Job descriptions, Personnel records, Continuing education, Training needs, Orientation program, Performance evaluation
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📄</span>
+                            TOPIC 8.3: Policies (8 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Zoning areas, Infectious disease management, Policy development, Communication, Accessibility, Inter-agency relations, Patient identification, Documentation
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">🏥</span>
+                            TOPIC 8.4: Facilities (4 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Treatment zones, Adequate facilities, Equipment standards, Authorized personnel training
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📊</span>
+                            TOPIC 8.5: Safety & Performance (4 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Planned activities, Assigned responsibilities, Incident reporting, Feedback communication, Documentation confidentiality
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quick-tips quick-tips-08">
+                    <h3 style="text-align: center; margin-bottom: 20px;">🎯 EMERGENCY DEPARTMENT FOCUS AREAS</h3>
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-title">Triage System</div>
+                            Malaysian Triage Category (MTC): Red (immediate), Yellow (≤30 min), Green (≤90 min). Must have trained triage personnel.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Essential Equipment</div>
+                            Airway management, oxygen delivery, ventilation support, vascular access, defibrillator, monitoring equipment, point-of-care diagnostics.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Emergency Medications</div>
+                            Resuscitation cart drugs: Adrenaline, Atropine, Amiodarone, Lignocaine, Glucose 50%, Naloxone, Flumazenil. Floor stock: Antihypertensives, bronchodilators.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Performance Indicators</div>
+                            Mandatory: Inappropriate triaging (≤0.5%). Waiting times by category. Unplanned 24-hour returns. Track and trend all indicators.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Head of Department</div>
+                            Must be Emergency Medicine specialist (NSR registered) OR visiting specialist supervision. Valid APC required.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Patient Transfer</div>
+                            Proper referral communication, qualified escorts, continuity of care, appropriate transport, complete documentation.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="committee-map">
+                    <h3 style="text-align: center; margin-bottom: 15px;">🚨 EMERGENCY SERVICES KEY FOCUS</h3>
+                    <div class="committee-grid">
+                        <div class="committee-card">
+                            <div class="committee-lead">Triage</div>
+                            Trained Personnel<br>MTC Categories<br>Performance Targets
+                        </div>
+                        <div class="committee-card">
+                            <div class="committee-lead">Equipment</div>
+                            Resuscitation<br>Monitoring<br>Maintenance
+                        </div>
+                        <div class="committee-card">
+                            <div class="committee-lead">Medications</div>
+                            Emergency Drugs<br>Crash Cart<br>Floor Stock
+                        </div>
+                        <div class="committee-card">
+                            <div class="committee-lead">Performance</div>
+                            Waiting Times<br>Inappropriate Triage<br>Return Visits
+                        </div>
+                        <div class="committee-card">
+                            <div class="committee-lead">Transfer</div>
+                            Referral Process<br>Continuity<br>Documentation
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 23A Content (Mortuary Services) -->
+        <div id="tab-23a" class="tab-content">
+            <div class="header header-23a">
+                <h1>MSQH Service Standard 23A</h1>
+                <p>Mortuary Services - Auditor Quick Reference Guide</p>
+            </div>
+            
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">CORE Standards</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">34</span>
+                    <span class="stat-label">Non-Core Standards</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">39</span>
+                    <span class="stat-label">Total Standards</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Main Topics</span>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="core-section">
+                    <div class="section-title">🔴 CORE STANDARDS (MUST COMPLY)</div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📋</span>
+                            TOPIC 23A.1: Organisation & Management (1)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">23A.1.1.2</span>
+                            Organisation Chart & Reporting Lines
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">👥</span>
+                            TOPIC 23A.2: Human Resources (1)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">23A.2.1.1</span>
+                            Head & Staff Qualifications
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📄</span>
+                            TOPIC 23A.3: Policies & Procedures (3)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">23A.3.1.1</span>
+                            Written Policies & 3-Year Review
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">23A.3.1.7</span>
+                            Complete Records & Documentation
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">23A.3.1.8</span>
+                            Evidence of Policy Compliance
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">🏥</span>
+                            TOPIC 23A.4: Facilities & Equipment (1)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">23A.4.1.14</span>
+                            Planned Preventive Maintenance
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📊</span>
+                            TOPIC 23A.5: Safety & Performance (1)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">23A.5.1.4</span>
+                            Performance Indicators Tracking
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="noncore-section">
+                    <div class="section-title">🟡 NON-CORE STANDARDS</div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📋</span>
+                            TOPIC 23A.1: Organisation (7 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Vision/Mission, Service activities, Staff meetings, Budget planning, Staff assignment, Collaboration, Statistics & records
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">👥</span>
+                            TOPIC 23A.2: Human Resources (10 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Authority responsibilities, Staffing adequacy, Job descriptions, Personnel records, Orientation program, Staff supervision, Training needs, Continuing education, Performance evaluation, External training
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📄</span>
+                            TOPIC 23A.3: Policies (7 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Policy development, Communication, Accessibility, Post-mortem procedures, Specimen handling, Safety procedures, Safety officer assignment
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">🏥</span>
+                            TOPIC 23A.4: Facilities (15 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Accessibility, Transport, Reception areas, Post-mortem suite, Infrastructure, Decomposed bodies, Body viewing, Staff facilities, Data processing, Equipment training, Safety standards, Storage areas, Cleanliness, Waste disposal
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📊</span>
+                            TOPIC 23A.5: Safety & Performance (5 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Planned activities, Assigned responsibilities, Incident reporting, Feedback communication, Documentation confidentiality, Audit participation
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quick-tips quick-tips-23a">
+                    <h3 style="text-align: center; margin-bottom: 20px;">⚱️ MORTUARY SERVICES KEY REQUIREMENTS</h3>
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-title">Service Supervision</div>
+                            Medical practitioner supervision required. State head of forensic medicine oversight. Training in mortuary processes essential.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Essential Areas</div>
+                            Body reception, storage (2-8°C), preparation/release, viewing, bereavement room, post-mortem suite (where applicable).
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Documentation Requirements</div>
+                            Body registration, specimen forwarding, evidence records, forensic reports filing, movement tracking. Chain of evidence maintained.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Performance Indicators</div>
+                            Turnaround time ≤3hrs (≥80%), Correct body release (≥99%), PM report completion within 12 weeks (≥80%).
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Safety & Equipment</div>
+                            PPE provision, specialized equipment training, MSDS documentation, post-mortem equipment, temperature monitoring.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Policies Required</div>
+                            Post-mortem procedures, specimen handling, safety protocols, body management, religious rites accommodation.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="committee-map">
+                    <h3 style="text-align: center; margin-bottom: 15px;">⚱️ MORTUARY SERVICES STRUCTURE</h3>
+                    <div class="committee-grid">
+                        <div class="committee-card">
+                            <div class="committee-lead">Supervision</div>
+                            Medical Practitioner<br>State Oversight<br>Training Evidence
+                        </div>
+                        <div class="committee-card">
+                            <div class="committee-lead">Facilities</div>
+                            Reception<br>Storage<br>Post-mortem Suite
+                        </div>
+                        <div class="committee-card">
+                            <div class="committee-lead">Documentation</div>
+                            Body Registration<br>Chain of Evidence<br>Report Filing
+                        </div>
+                        <div class="committee-card">
+                            <div class="committee-lead">Performance</div>
+                            Turnaround Times<br>Correct Release<br>Report Completion
+                        </div>
+                        <div class="committee-card">
+                            <div class="committee-lead">Safety</div>
+                            PPE Requirements<br>Equipment Training<br>MSDS Available
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 05 Content (Infection Control) -->
+        <div id="tab-05" class="tab-content">
+            <div class="header header-05">
+                <h1>MSQH Service Standard 05</h1>
+                <p>Prevention and Control of Infection - Auditor Quick Reference Guide</p>
+            </div>
+            
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-number">9</span>
+                    <span class="stat-label">CORE Standards</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">34</span>
+                    <span class="stat-label">Non-Core Standards</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">43</span>
+                    <span class="stat-label">Total Standards</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Main Topics</span>
+                </div>
+            </div>
+            
+            <div class="content-05">
+                <div class="mixed-section">
+                    <div class="section-title">🔴 CORE STANDARDS (ZERO TOLERANCE)</div>
+                    
+                    <div class="dialysis-grid">
+                        <div class="priority-box">
+                            <div class="priority-title">
+                                <span class="priority-icon">📋</span>
+                                TOPIC 5.1: Organisation & Management (3)
+                            </div>
+                            <div style="font-size: 11px; margin: 8px 0;">
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">5.1.1.3</span>
+                                    HIACC Committee Establishment
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">5.1.1.4</span>
+                                    PCI & AMS Team Relationship
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">5.1.1.6</span>
+                                    HIACC Meeting Frequency (6-monthly)
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="priority-box">
+                            <div class="priority-title">
+                                <span class="priority-icon">👥</span>
+                                TOPIC 5.2: Human Resources (3)
+                            </div>
+                            <div style="font-size: 11px; margin: 8px 0;">
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">5.2.1.3</span>
+                                    ICN Post-basic Training & AMS Pharmacist
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">5.2.1.5</span>
+                                    Sufficient Personnel Numbers
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">5.2.1.11</span>
+                                    Facility-wide Orientation Involvement
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="priority-box">
+                            <div class="priority-title">
+                                <span class="priority-icon">📄</span>
+                                TOPIC 5.3: Policies & Procedures (3)
+                            </div>
+                            <div style="font-size: 11px; margin: 8px 0;">
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">5.3.1.1</span>
+                                    Written PCI/AMS Policies & 3-Year Review
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">5.3.1.4</span>
+                                    Evidence of Policy Compliance
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">5.3.1.9</span>
+                                    HIACC Reviews HAI Reports
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="priority-box">
+                            <div class="priority-title">
+                                <span class="priority-icon">🏥</span>
+                                TOPIC 5.4: Facilities & Equipment (1)
+                            </div>
+                            <div style="font-size: 11px; margin: 8px 0;">
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">5.4.1.2</span>
+                                    Medical Devices Manufacturer Compliance
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="priority-box">
+                            <div class="priority-title">
+                                <span class="priority-icon">📊</span>
+                                TOPIC 5.5: Safety & Performance (1)
+                            </div>
+                            <div style="font-size: 11px; margin: 8px 0;">
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">5.5.1.4</span>
+                                    Performance Indicators Tracking (PCI & AMS)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quick-tips quick-tips-05">
+                    <h3 style="text-align: center; margin-bottom: 20px;">🛡️ INFECTION CONTROL & AMS CRITICAL SUCCESS FACTORS</h3>
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-title">HIACC Committee</div>
+                            Medical practitioner chair, multi-disciplinary members, 6-monthly meetings minimum. PCI & AMS teams report to HIACC.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">ICN Qualifications</div>
+                            Post-basic/advanced diploma infection control training required. AMS pharmacist needs AMS training program certification.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Essential Policies</div>
+                            Aseptic techniques, PPE use, HAI isolation, antimicrobial policy, sterilization, housekeeping, waste management, facility maintenance.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">PCI Performance Indicators</div>
+                            Staff training (85%), HAI rate (≤5%), MDRO surveillance (MRSA ≤0.3%, ESBL ≤0.2-0.3%, CRE ≤0.1%), VRE (≤0.1%).
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">AMS Performance Indicators</div>
+                            Complete prescriptions documentation, appropriate antimicrobial prescribing per guidelines, 72-hour empirical prescription review.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Facility Requirements</div>
+                            Adequate PPE, hand hygiene facilities, isolation rooms (pressure monitoring), manufacturer compliance for devices/disinfectants.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="critical-points">
+                    <h3 style="margin-bottom: 15px;">🛡️ INFECTION CONTROL & ANTIMICROBIAL STEWARDSHIP FOCUS</h3>
+                    <div class="critical-grid">
+                        <div class="critical-card">
+                            <div class="critical-title">HIACC Structure</div>
+                            <div style="font-size: 12px;">Medical chair, multi-disciplinary, 6-monthly meetings, PCI & AMS reporting</div>
+                        </div>
+                        <div class="critical-card">
+                            <div class="critical-title">Trained Personnel</div>
+                            <div style="font-size: 12px;">ICN post-basic trained, AMS pharmacist certified, link nurses in all wards</div>
+                        </div>
+                        <div class="critical-card">
+                            <div class="critical-title">Comprehensive Policies</div>
+                            <div style="font-size: 12px;">Infection control, antimicrobial policy, facility-wide implementation</div>
+                        </div>
+                        <div class="critical-card">
+                            <div class="critical-title">Performance Monitoring</div>
+                            <div style="font-size: 12px;">HAI rates, MDRO surveillance, antimicrobial prescribing patterns</div>
+                        </div>
+                    </div>
+                    <div class="bottom-line">
+                        <strong>BOTTOM LINE:</strong> Infection control is facility-wide responsibility requiring structured governance, trained personnel, and continuous monitoring.
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -1073,7 +1522,8 @@
             document.getElementById(tabId).classList.add('active');
             
             // Add active class to clicked tab button
-            event.target.classList.add('active');
+            const clickedButton = document.querySelector(`.tab-${tabId.split('-')[1]}`);
+            clickedButton.classList.add('active');
         }
     </script>
 </body>
