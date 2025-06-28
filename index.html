@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSQH 9A Standards - Auditor Quick Reference</title>
+    <title>MSQH Standards - Auditor Quick Reference</title>
     <style>
         * {
             margin: 0;
@@ -16,22 +16,77 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             padding: 20px;
             line-height: 1.4;
+            min-height: 100vh;
         }
         
-        .container {
+        .main-container {
             max-width: 1200px;
             margin: 0 auto;
+        }
+        
+        .tab-navigation {
+            display: flex;
+            margin-bottom: 0;
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .tab-button {
+            flex: 1;
+            padding: 20px;
+            background: #34495e;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .tab-button:hover {
+            background: #2c3e50;
+            transform: translateY(-2px);
+        }
+        
+        .tab-button.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: translateY(-2px);
+        }
+        
+        .tab-button.tab-9a.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .tab-button.tab-13c.active {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
+        
+        .tab-content {
+            display: none;
             background: white;
-            border-radius: 20px;
+            border-radius: 0 0 20px 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             overflow: hidden;
         }
         
+        .tab-content.active {
+            display: block;
+        }
+        
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 30px;
             text-align: center;
+        }
+        
+        .header-9a {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .header-13c {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
         }
         
         .header h1 {
@@ -75,6 +130,10 @@
             min-height: 600px;
         }
         
+        .content-13c {
+            display: block;
+        }
+        
         .core-section {
             background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
             color: white;
@@ -85,6 +144,13 @@
             background: linear-gradient(135deg, #4ecdc4 0%, #45b7aa 100%);
             color: white;
             padding: 30px;
+        }
+        
+        .all-core-section {
+            background: #e74c3c;
+            color: white;
+            padding: 30px;
+            text-align: center;
         }
         
         .section-title {
@@ -145,10 +211,17 @@
         }
         
         .quick-tips {
-            background: #34495e;
             color: white;
             padding: 20px;
             grid-column: 1 / -1;
+        }
+        
+        .quick-tips-9a {
+            background: #34495e;
+        }
+        
+        .quick-tips-13c {
+            background: #c0392b;
         }
         
         .tips-grid {
@@ -198,6 +271,46 @@
             margin-bottom: 5px;
         }
         
+        .dialysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .critical-points {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .critical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .critical-card {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .critical-title {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+        
+        .bottom-line {
+            margin-top: 15px;
+            font-size: 14px;
+            background: rgba(231, 76, 60, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
         @media (max-width: 768px) {
             .content {
                 grid-template-columns: 1fr;
@@ -211,227 +324,520 @@
             .header h1 {
                 font-size: 22px;
             }
+            
+            .tab-button {
+                font-size: 14px;
+                padding: 15px;
+            }
+            
+            .dialysis-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>MSQH Service Standard 9A</h1>
-            <p>Medical Related Services - Auditor Quick Reference Guide</p>
+    <div class="main-container">
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-button tab-9a active" onclick="showTab('tab-9a')">
+                📋 Service Standard 9A<br>
+                <small>Medical Related Services</small>
+            </button>
+            <button class="tab-button tab-13c" onclick="showTab('tab-13c')">
+                🏥 Service Standard 13C<br>
+                <small>Chronic Dialysis Treatment</small>
+            </button>
         </div>
-        
-        <div class="stats-bar">
-            <div class="stat">
-                <span class="stat-number">10</span>
-                <span class="stat-label">CORE Standards</span>
+
+        <!-- Tab 9A Content -->
+        <div id="tab-9a" class="tab-content active">
+            <div class="header header-9a">
+                <h1>MSQH Service Standard 9A</h1>
+                <p>Medical Related Services - Auditor Quick Reference Guide</p>
             </div>
-            <div class="stat">
-                <span class="stat-number">27</span>
-                <span class="stat-label">Non-Core Standards</span>
+            
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">CORE Standards</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">27</span>
+                    <span class="stat-label">Non-Core Standards</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">37</span>
+                    <span class="stat-label">Total Standards</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Main Topics</span>
+                </div>
             </div>
-            <div class="stat">
-                <span class="stat-number">37</span>
-                <span class="stat-label">Total Standards</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">5</span>
-                <span class="stat-label">Main Topics</span>
+            
+            <div class="content">
+                <div class="core-section">
+                    <div class="section-title">🔴 CORE STANDARDS (MUST COMPLY)</div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📋</span>
+                            TOPIC 9A.1: Organisation & Management (2)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">9A.1.1.2</span>
+                            Organisation Chart & Reporting Lines
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">9A.1.1.5</span>
+                            Head of Service Representation
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">👥</span>
+                            TOPIC 9A.2: Human Resources (2)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">9A.2.1.1</span>
+                            Credentialing & Competency Training
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">9A.2.1.2</span>
+                            Documented Privileges Evidence
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📄</span>
+                            TOPIC 9A.3: Policies & Procedures (3)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">9A.3.1.1</span>
+                            Written Policies & 3-Year Review
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">9A.3.1.3</span>
+                            Essential Policy Topics Coverage
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">9A.3.1.5</span>
+                            Evidence of Policy Compliance
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">🏥</span>
+                            TOPIC 9A.4: Facilities & Equipment (1)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">9A.4.2.4</span>
+                            Comprehensive Maintenance Programme
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📊</span>
+                            TOPIC 9A.5: Safety & Performance (2)
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">9A.5.1.4</span>
+                            Peer Group Clinical Evaluation
+                        </div>
+                        <div class="standard-item">
+                            <input type="checkbox" class="checkbox">
+                            <span class="standard-code">9A.5.1.5</span>
+                            Performance Indicators (Min 2)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="noncore-section">
+                    <div class="section-title">🟡 NON-CORE STANDARDS</div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📋</span>
+                            TOPIC 9A.1: Organisation (8 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Vision/Mission, Governing Body interaction, Clinical independence, Management involvement, Staff meetings, Training oversight, Statistics & records
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">👥</span>
+                            TOPIC 9A.2: Human Resources (10 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Job descriptions, Staff performance, Continuing education, Training needs, Performance evaluation, Clinical research, Staffing levels, Orientation programs
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📄</span>
+                            TOPIC 9A.3: Policies (4 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Collaborative development, Communication, Accessibility, 24-hour operations
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">🏥</span>
+                            TOPIC 9A.4: Facilities (7 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Adequate facilities, Safety, Communication systems, Equipment standards, Training, Upgrades, Outpatient services
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-title">
+                            <span class="priority-icon">📊</span>
+                            TOPIC 9A.5: Safety & Performance (5 standards)
+                        </div>
+                        <div style="font-size: 11px; opacity: 0.9;">
+                            Planned activities, Responsibilities, Incident reporting, Feedback, Documentation & confidentiality
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quick-tips quick-tips-9a">
+                    <h3 style="text-align: center; margin-bottom: 20px;">🎯 AUDITOR QUICK TIPS</h3>
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-title">CORE = Zero Tolerance</div>
+                            Must have complete documentation, evidence readily accessible, staff must demonstrate understanding
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Performance Indicators</div>
+                            Minimum 2 required: M&M audits, 72hr readmissions, Dengue CFR, Blood culture compliance, 24hr deaths
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Essential Policies</div>
+                            Check: Org structure, Clinical guidelines, Pain 5th vital sign, Handover, Drug management, Blood transfusion
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Credentialing Must-Haves</div>
+                            APC, NSR certificates, competency records, privilege lists, peer recommendations, outcome documentation
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="committee-map">
+                    <h3 style="text-align: center; margin-bottom: 15px;">👥 YOUR COMMITTEE MAPPING</h3>
+                    <div class="committee-grid">
+                        <div class="committee-card">
+                            <div class="committee-lead">Sei Yen</div>
+                            MDAC Leadership<br>9A.1.1.2, 9A.1.1.5
+                        </div>
+                        <div class="committee-card">
+                            <div class="committee-lead">Jeremiah</div>
+                            Credentialing<br>9A.2.1.1, 9A.2.1.2
+                        </div>
+                        <div class="committee-card">
+                            <div class="committee-lead">Chan</div>
+                            Policies<br>9A.3.1.1, 9A.3.1.3, 9A.3.1.5
+                        </div>
+                        <div class="committee-card">
+                            <div class="committee-lead">Sister CT</div>
+                            Equipment<br>9A.4.2.4
+                        </div>
+                        <div class="committee-card">
+                            <div class="committee-lead">Lalitha</div>
+                            Quality & Performance<br>9A.5.1.4, 9A.5.1.5
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="content">
-            <div class="core-section">
-                <div class="section-title">🔴 CORE STANDARDS (MUST COMPLY)</div>
-                
-                <div class="priority-box">
-                    <div class="priority-title">
-                        <span class="priority-icon">📋</span>
-                        TOPIC 9A.1: Organisation & Management (2)
-                    </div>
-                    <div class="standard-item">
-                        <input type="checkbox" class="checkbox">
-                        <span class="standard-code">9A.1.1.2</span>
-                        Organisation Chart & Reporting Lines
-                    </div>
-                    <div class="standard-item">
-                        <input type="checkbox" class="checkbox">
-                        <span class="standard-code">9A.1.1.5</span>
-                        Head of Service Representation
-                    </div>
+
+        <!-- Tab 13C Content -->
+        <div id="tab-13c" class="tab-content">
+            <div class="header header-13c">
+                <h1>MSQH Service Standard 13C</h1>
+                <p>Chronic Dialysis Treatment Standards - Auditor Quick Reference Guide</p>
+            </div>
+            
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-number">36</span>
+                    <span class="stat-label">CORE Standards</span>
                 </div>
-                
-                <div class="priority-box">
-                    <div class="priority-title">
-                        <span class="priority-icon">👥</span>
-                        TOPIC 9A.2: Human Resources (2)
-                    </div>
-                    <div class="standard-item">
-                        <input type="checkbox" class="checkbox">
-                        <span class="standard-code">9A.2.1.1</span>
-                        Credentialing & Competency Training
-                    </div>
-                    <div class="standard-item">
-                        <input type="checkbox" class="checkbox">
-                        <span class="standard-code">9A.2.1.2</span>
-                        Documented Privileges Evidence
-                    </div>
+                <div class="stat">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Non-Core Standards</span>
                 </div>
-                
-                <div class="priority-box">
-                    <div class="priority-title">
-                        <span class="priority-icon">📄</span>
-                        TOPIC 9A.3: Policies & Procedures (3)
-                    </div>
-                    <div class="standard-item">
-                        <input type="checkbox" class="checkbox">
-                        <span class="standard-code">9A.3.1.1</span>
-                        Written Policies & 3-Year Review
-                    </div>
-                    <div class="standard-item">
-                        <input type="checkbox" class="checkbox">
-                        <span class="standard-code">9A.3.1.3</span>
-                        Essential Policy Topics Coverage
-                    </div>
-                    <div class="standard-item">
-                        <input type="checkbox" class="checkbox">
-                        <span class="standard-code">9A.3.1.5</span>
-                        Evidence of Policy Compliance
-                    </div>
+                <div class="stat">
+                    <span class="stat-number">36</span>
+                    <span class="stat-label">Total Standards</span>
                 </div>
-                
-                <div class="priority-box">
-                    <div class="priority-title">
-                        <span class="priority-icon">🏥</span>
-                        TOPIC 9A.4: Facilities & Equipment (1)
-                    </div>
-                    <div class="standard-item">
-                        <input type="checkbox" class="checkbox">
-                        <span class="standard-code">9A.4.2.4</span>
-                        Comprehensive Maintenance Programme
-                    </div>
-                </div>
-                
-                <div class="priority-box">
-                    <div class="priority-title">
-                        <span class="priority-icon">📊</span>
-                        TOPIC 9A.5: Safety & Performance (2)
-                    </div>
-                    <div class="standard-item">
-                        <input type="checkbox" class="checkbox">
-                        <span class="standard-code">9A.5.1.4</span>
-                        Peer Group Clinical Evaluation
-                    </div>
-                    <div class="standard-item">
-                        <input type="checkbox" class="checkbox">
-                        <span class="standard-code">9A.5.1.5</span>
-                        Performance Indicators (Min 2)
-                    </div>
+                <div class="stat">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Main Topics</span>
                 </div>
             </div>
             
-            <div class="noncore-section">
-                <div class="section-title">🟡 NON-CORE STANDARDS</div>
-                
-                <div class="priority-box">
-                    <div class="priority-title">
-                        <span class="priority-icon">📋</span>
-                        TOPIC 9A.1: Organisation (8 standards)
-                    </div>
-                    <div style="font-size: 11px; opacity: 0.9;">
-                        Vision/Mission, Governing Body interaction, Clinical independence, Management involvement, Staff meetings, Training oversight, Statistics & records
+            <div class="content-13c">
+                <div class="all-core-section">
+                    <div class="section-title" style="background: rgba(255,255,255,0.15); margin-bottom: 20px;">🔴 ALL STANDARDS ARE CORE (MANDATORY)</div>
+                    
+                    <div class="dialysis-grid">
+                        
+                        <div class="priority-box">
+                            <div class="priority-title">
+                                <span class="priority-icon">🏥</span>
+                                TOPIC 13C.1: Organisation & Management (7)
+                            </div>
+                            <div style="font-size: 11px; margin: 8px 0;">
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.1.1.1</span>
+                                    Vision, Mission & Values
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.1.1.2</span>
+                                    Organisation Chart
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.1.2.1</span>
+                                    PIC Governance & Qualifications
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.1.2.2</span>
+                                    Governing Framework
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.1.3.1</span>
+                                    Patient Acceptance
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.1.3.2</span>
+                                    Access to Regular Dialysis
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.1.3.3</span>
+                                    Access to Medical Care
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="priority-box">
+                            <div class="priority-title">
+                                <span class="priority-icon">👥</span>
+                                TOPIC 13C.2: Human Resources (3)
+                            </div>
+                            <div style="font-size: 11px; margin: 8px 0;">
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.2.1.1</span>
+                                    Centre Manager/Staff in-charge
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.2.1.2</span>
+                                    Staffing Requirements
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.2.1.3</span>
+                                    Other Support Staff
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="priority-box">
+                            <div class="priority-title">
+                                <span class="priority-icon">📄</span>
+                                TOPIC 13C.3: Policies & Procedures (15)
+                            </div>
+                            <div style="font-size: 10px; margin: 8px 0;">
+                                <div><strong>Patient Care (3):</strong></div>
+                                <div style="margin-left: 10px;">• Clinical Care • Prescription • Outcome</div>
+                                <div><strong>Ethics & Rights (5):</strong></div>
+                                <div style="margin-left: 10px;">• Confidentiality • Informed Consent • Patient Rights • Monitoring • Continuity</div>
+                                <div><strong>Infection Control (7):</strong></div>
+                                <div style="margin-left: 10px;">• Control Systems • Pre-screening • Monitoring • Blood-borne • Respiratory • Visiting Patients • Designated Staff</div>
+                            </div>
+                        </div>
+                        
+                        <div class="priority-box">
+                            <div class="priority-title">
+                                <span class="priority-icon">🔧</span>
+                                TOPIC 13C.4: Facilities & Equipment (7)
+                            </div>
+                            <div style="font-size: 11px; margin: 8px 0;">
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.4.1.1</span>
+                                    Structural Design
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.4.1.2</span>
+                                    Equipment Standards
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.4.1.3</span>
+                                    Water Treatment System
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.4.1.4</span>
+                                    Resuscitation Equipment
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.4.1.5</span>
+                                    Equipment Maintenance
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.4.1.6</span>
+                                    Water Quality Monitoring
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.4.1.7</span>
+                                    Cold-chain Medications
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="priority-box">
+                            <div class="priority-title">
+                                <span class="priority-icon">📊</span>
+                                TOPIC 13C.5: Safety & Performance (4)
+                            </div>
+                            <div style="font-size: 11px; margin: 8px 0;">
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.5.1.1</span>
+                                    Performance Improvement Plan
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.5.1.2</span>
+                                    Training in Performance
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.5.1.3</span>
+                                    Documentation & Data
+                                </div>
+                                <div class="standard-item">
+                                    <input type="checkbox" class="checkbox">
+                                    <span class="standard-code">13C.5.1.4</span>
+                                    Disaster Preparedness
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="priority-box">
-                    <div class="priority-title">
-                        <span class="priority-icon">👥</span>
-                        TOPIC 9A.2: Human Resources (10 standards)
-                    </div>
-                    <div style="font-size: 11px; opacity: 0.9;">
-                        Job descriptions, Staff performance, Continuing education, Training needs, Performance evaluation, Clinical research, Staffing levels, Orientation programs
+                <div class="quick-tips quick-tips-13c">
+                    <h3 style="text-align: center; margin-bottom: 20px;">🎯 DIALYSIS CENTER CRITICAL POINTS</h3>
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-title">PIC Requirements</div>
+                            Nephrologist OR Internal Medicine + 200hrs training + Nephrologist affiliation. Valid APC & NSR required.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Staffing Mandate</div>
+                            Centre Manager: Post-basic renal nursing + 2yrs experience. All nurses: 6 months renal training minimum.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Infection Control</div>
+                            Blood-borne screening (HBV, HCV, HIV), Designated infection control staff, CRBSI surveillance, Fistula care.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Water Quality</div>
+                            AAMI 2015/ISO 23500:2014 standards. Daily chlorine testing, monthly endotoxin, 6-monthly chemical testing.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Clinical Requirements</div>
+                            Nephrologist review every 3 months, Prescription documentation, Outcome monitoring, Patient education.
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Mandatory Reporting</div>
+                            MOH notification: Viral seroconversion, Intradialytic deaths, Pyogenic reactions, NRR compliance certificate.
+                        </div>
                     </div>
                 </div>
                 
-                <div class="priority-box">
-                    <div class="priority-title">
-                        <span class="priority-icon">📄</span>
-                        TOPIC 9A.3: Policies (4 standards)
+                <div class="critical-points">
+                    <h3 style="margin-bottom: 15px;">⚠️ CRITICAL SUCCESS FACTORS FOR DIALYSIS CENTERS</h3>
+                    <div class="critical-grid">
+                        <div class="critical-card">
+                            <div class="critical-title">100% CORE Compliance</div>
+                            <div style="font-size: 12px;">Zero tolerance - all 36 standards are mandatory for patient safety</div>
+                        </div>
+                        <div class="critical-card">
+                            <div class="critical-title">Documentation Heavy</div>
+                            <div style="font-size: 12px;">Daily logs, monthly tests, quarterly reviews, incident reports</div>
+                        </div>
+                        <div class="critical-card">
+                            <div class="critical-title">Specialized Expertise</div>
+                            <div style="font-size: 12px;">Nephrology knowledge, renal nursing, infection control training</div>
+                        </div>
+                        <div class="critical-card">
+                            <div class="critical-title">Equipment Critical</div>
+                            <div style="font-size: 12px;">Water treatment, dialysis machines, maintenance, calibration</div>
+                        </div>
                     </div>
-                    <div style="font-size: 11px; opacity: 0.9;">
-                        Collaborative development, Communication, Accessibility, 24-hour operations
-                    </div>
-                </div>
-                
-                <div class="priority-box">
-                    <div class="priority-title">
-                        <span class="priority-icon">🏥</span>
-                        TOPIC 9A.4: Facilities (7 standards)
-                    </div>
-                    <div style="font-size: 11px; opacity: 0.9;">
-                        Adequate facilities, Safety, Communication systems, Equipment standards, Training, Upgrades, Outpatient services
-                    </div>
-                </div>
-                
-                <div class="priority-box">
-                    <div class="priority-title">
-                        <span class="priority-icon">📊</span>
-                        TOPIC 9A.5: Safety & Performance (5 standards)
-                    </div>
-                    <div style="font-size: 11px; opacity: 0.9;">
-                        Planned activities, Responsibilities, Incident reporting, Feedback, Documentation & confidentiality
-                    </div>
-                </div>
-            </div>
-            
-            <div class="quick-tips">
-                <h3 style="text-align: center; margin-bottom: 20px;">🎯 AUDITOR QUICK TIPS</h3>
-                <div class="tips-grid">
-                    <div class="tip-card">
-                        <div class="tip-title">CORE = Zero Tolerance</div>
-                        Must have complete documentation, evidence readily accessible, staff must demonstrate understanding
-                    </div>
-                    <div class="tip-card">
-                        <div class="tip-title">Performance Indicators</div>
-                        Minimum 2 required: M&M audits, 72hr readmissions, Dengue CFR, Blood culture compliance, 24hr deaths
-                    </div>
-                    <div class="tip-card">
-                        <div class="tip-title">Essential Policies</div>
-                        Check: Org structure, Clinical guidelines, Pain 5th vital sign, Handover, Drug management, Blood transfusion
-                    </div>
-                    <div class="tip-card">
-                        <div class="tip-title">Credentialing Must-Haves</div>
-                        APC, NSR certificates, competency records, privilege lists, peer recommendations, outcome documentation
-                    </div>
-                </div>
-            </div>
-            
-            <div class="committee-map">
-                <h3 style="text-align: center; margin-bottom: 15px;">👥 YOUR COMMITTEE MAPPING</h3>
-                <div class="committee-grid">
-                    <div class="committee-card">
-                        <div class="committee-lead">Sei Yen</div>
-                        MDAC Leadership<br>9A.1.1.2, 9A.1.1.5
-                    </div>
-                    <div class="committee-card">
-                        <div class="committee-lead">Jeremiah</div>
-                        Credentialing<br>9A.2.1.1, 9A.2.1.2
-                    </div>
-                    <div class="committee-card">
-                        <div class="committee-lead">Chan</div>
-                        Policies<br>9A.3.1.1, 9A.3.1.3, 9A.3.1.5
-                    </div>
-                    <div class="committee-card">
-                        <div class="committee-lead">Sister CT</div>
-                        Equipment<br>9A.4.2.4
-                    </div>
-                    <div class="committee-card">
-                        <div class="committee-lead">Lalitha</div>
-                        Quality & Performance<br>9A.5.1.4, 9A.5.1.5
+                    <div class="bottom-line">
+                        <strong>BOTTOM LINE:</strong> Dialysis centers have the highest compliance requirements - ALL standards are CORE and patient safety critical.
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to clicked tab button
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
