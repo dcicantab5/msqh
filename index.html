@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSQH 9A Standards - Auditor Quick Reference</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            line-height: 1.4;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .stats-bar {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        
+        .stat {
+            flex: 1;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+        
+        .core-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+            padding: 30px;
+        }
+        
+        .noncore-section {
+            background: linear-gradient(135deg, #4ecdc4 0%, #45b7aa 100%);
+            color: white;
+            padding: 30px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 10px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+        }
+        
+        .priority-box {
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid rgba(255,255,255,0.5);
+        }
+        
+        .priority-title {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .priority-icon {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+        
+        .standard-item {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .standard-code {
+            background: rgba(255,255,255,0.3);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-right: 8px;
+            min-width: 60px;
+            text-align: center;
+            font-size: 10px;
+        }
+        
+        .checkbox {
+            margin-right: 8px;
+            transform: scale(1.2);
+        }
+        
+        .quick-tips {
+            background: #34495e;
+            color: white;
+            padding: 20px;
+            grid-column: 1 / -1;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .tip-card {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .tip-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #3498db;
+        }
+        
+        .committee-map {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            grid-column: 1 / -1;
+        }
+        
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .committee-card {
+            background: rgba(255,255,255,0.1);
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 11px;
+        }
+        
+        .committee-lead {
+            font-weight: bold;
+            color: #f39c12;
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-bar {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .header h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MSQH Service Standard 9A</h1>
+            <p>Medical Related Services - Auditor Quick Reference Guide</p>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-number">10</span>
+                <span class="stat-label">CORE Standards</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">27</span>
+                <span class="stat-label">Non-Core Standards</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">37</span>
+                <span class="stat-label">Total Standards</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Main Topics</span>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="core-section">
+                <div class="section-title">🔴 CORE STANDARDS (MUST COMPLY)</div>
+                
+                <div class="priority-box">
+                    <div class="priority-title">
+                        <span class="priority-icon">📋</span>
+                        TOPIC 9A.1: Organisation & Management (2)
+                    </div>
+                    <div class="standard-item">
+                        <input type="checkbox" class="checkbox">
+                        <span class="standard-code">9A.1.1.2</span>
+                        Organisation Chart & Reporting Lines
+                    </div>
+                    <div class="standard-item">
+                        <input type="checkbox" class="checkbox">
+                        <span class="standard-code">9A.1.1.5</span>
+                        Head of Service Representation
+                    </div>
+                </div>
+                
+                <div class="priority-box">
+                    <div class="priority-title">
+                        <span class="priority-icon">👥</span>
+                        TOPIC 9A.2: Human Resources (2)
+                    </div>
+                    <div class="standard-item">
+                        <input type="checkbox" class="checkbox">
+                        <span class="standard-code">9A.2.1.1</span>
+                        Credentialing & Competency Training
+                    </div>
+                    <div class="standard-item">
+                        <input type="checkbox" class="checkbox">
+                        <span class="standard-code">9A.2.1.2</span>
+                        Documented Privileges Evidence
+                    </div>
+                </div>
+                
+                <div class="priority-box">
+                    <div class="priority-title">
+                        <span class="priority-icon">📄</span>
+                        TOPIC 9A.3: Policies & Procedures (3)
+                    </div>
+                    <div class="standard-item">
+                        <input type="checkbox" class="checkbox">
+                        <span class="standard-code">9A.3.1.1</span>
+                        Written Policies & 3-Year Review
+                    </div>
+                    <div class="standard-item">
+                        <input type="checkbox" class="checkbox">
+                        <span class="standard-code">9A.3.1.3</span>
+                        Essential Policy Topics Coverage
+                    </div>
+                    <div class="standard-item">
+                        <input type="checkbox" class="checkbox">
+                        <span class="standard-code">9A.3.1.5</span>
+                        Evidence of Policy Compliance
+                    </div>
+                </div>
+                
+                <div class="priority-box">
+                    <div class="priority-title">
+                        <span class="priority-icon">🏥</span>
+                        TOPIC 9A.4: Facilities & Equipment (1)
+                    </div>
+                    <div class="standard-item">
+                        <input type="checkbox" class="checkbox">
+                        <span class="standard-code">9A.4.2.4</span>
+                        Comprehensive Maintenance Programme
+                    </div>
+                </div>
+                
+                <div class="priority-box">
+                    <div class="priority-title">
+                        <span class="priority-icon">📊</span>
+                        TOPIC 9A.5: Safety & Performance (2)
+                    </div>
+                    <div class="standard-item">
+                        <input type="checkbox" class="checkbox">
+                        <span class="standard-code">9A.5.1.4</span>
+                        Peer Group Clinical Evaluation
+                    </div>
+                    <div class="standard-item">
+                        <input type="checkbox" class="checkbox">
+                        <span class="standard-code">9A.5.1.5</span>
+                        Performance Indicators (Min 2)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="noncore-section">
+                <div class="section-title">🟡 NON-CORE STANDARDS</div>
+                
+                <div class="priority-box">
+                    <div class="priority-title">
+                        <span class="priority-icon">📋</span>
+                        TOPIC 9A.1: Organisation (8 standards)
+                    </div>
+                    <div style="font-size: 11px; opacity: 0.9;">
+                        Vision/Mission, Governing Body interaction, Clinical independence, Management involvement, Staff meetings, Training oversight, Statistics & records
+                    </div>
+                </div>
+                
+                <div class="priority-box">
+                    <div class="priority-title">
+                        <span class="priority-icon">👥</span>
+                        TOPIC 9A.2: Human Resources (10 standards)
+                    </div>
+                    <div style="font-size: 11px; opacity: 0.9;">
+                        Job descriptions, Staff performance, Continuing education, Training needs, Performance evaluation, Clinical research, Staffing levels, Orientation programs
+                    </div>
+                </div>
+                
+                <div class="priority-box">
+                    <div class="priority-title">
+                        <span class="priority-icon">📄</span>
+                        TOPIC 9A.3: Policies (4 standards)
+                    </div>
+                    <div style="font-size: 11px; opacity: 0.9;">
+                        Collaborative development, Communication, Accessibility, 24-hour operations
+                    </div>
+                </div>
+                
+                <div class="priority-box">
+                    <div class="priority-title">
+                        <span class="priority-icon">🏥</span>
+                        TOPIC 9A.4: Facilities (7 standards)
+                    </div>
+                    <div style="font-size: 11px; opacity: 0.9;">
+                        Adequate facilities, Safety, Communication systems, Equipment standards, Training, Upgrades, Outpatient services
+                    </div>
+                </div>
+                
+                <div class="priority-box">
+                    <div class="priority-title">
+                        <span class="priority-icon">📊</span>
+                        TOPIC 9A.5: Safety & Performance (5 standards)
+                    </div>
+                    <div style="font-size: 11px; opacity: 0.9;">
+                        Planned activities, Responsibilities, Incident reporting, Feedback, Documentation & confidentiality
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quick-tips">
+                <h3 style="text-align: center; margin-bottom: 20px;">🎯 AUDITOR QUICK TIPS</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-title">CORE = Zero Tolerance</div>
+                        Must have complete documentation, evidence readily accessible, staff must demonstrate understanding
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-title">Performance Indicators</div>
+                        Minimum 2 required: M&M audits, 72hr readmissions, Dengue CFR, Blood culture compliance, 24hr deaths
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-title">Essential Policies</div>
+                        Check: Org structure, Clinical guidelines, Pain 5th vital sign, Handover, Drug management, Blood transfusion
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-title">Credentialing Must-Haves</div>
+                        APC, NSR certificates, competency records, privilege lists, peer recommendations, outcome documentation
+                    </div>
+                </div>
+            </div>
+            
+            <div class="committee-map">
+                <h3 style="text-align: center; margin-bottom: 15px;">👥 YOUR COMMITTEE MAPPING</h3>
+                <div class="committee-grid">
+                    <div class="committee-card">
+                        <div class="committee-lead">Sei Yen</div>
+                        MDAC Leadership<br>9A.1.1.2, 9A.1.1.5
+                    </div>
+                    <div class="committee-card">
+                        <div class="committee-lead">Jeremiah</div>
+                        Credentialing<br>9A.2.1.1, 9A.2.1.2
+                    </div>
+                    <div class="committee-card">
+                        <div class="committee-lead">Chan</div>
+                        Policies<br>9A.3.1.1, 9A.3.1.3, 9A.3.1.5
+                    </div>
+                    <div class="committee-card">
+                        <div class="committee-lead">Sister CT</div>
+                        Equipment<br>9A.4.2.4
+                    </div>
+                    <div class="committee-card">
+                        <div class="committee-lead">Lalitha</div>
+                        Quality & Performance<br>9A.5.1.4, 9A.5.1.5
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
